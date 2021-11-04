@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Container,
+  Box,
+} from '@material-ui/core';
+import Calculator from './components/Calculator';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography>あんみつチェッカー</Typography>
+        </Toolbar>
+      </AppBar>
+
+      <Container maxWidth="sm">
+        <Box sx={{ m: '30px 0' }}>
+          <Calculator />
+        </Box>
+      </Container>
+    </>
   );
-}
+};
 
 export default App;
