@@ -1,16 +1,16 @@
 import React from 'react';
 import {
   makeStyles,
-  FormControl,
-  InputLabel,
-  Select,
   MenuItem,
   Box,
 } from "@material-ui/core";
+import SelectForm from './SelectForm';
+import ResultBox from './ResultBox';
 
 const useStyles = makeStyles(() => ({
-  formControl: {
-    width: '30%',
+  flexBox: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
   },
 }));
 
@@ -44,50 +44,40 @@ const Calculator: React.FC = () => {
   );
 
   const calcInterval = React.useMemo(() =>
-    Math.round(24000000 / (bpm * noteType)) / 100,
+    Math.round(240000000 / (bpm * noteType)) / 1000,
+    [bpm, noteType]
+  );
+
+  const calcCriticalSec = React.useMemo(() =>
+    Math.round((1000000 / 12) - (240000000 / (bpm * noteType))) / 1000,
     [bpm, noteType]
   );
 
   return (
     <>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          p: 1,
-          m: 1,
-        }}
-      >
-        <FormControl className={classes.formControl}>
-          <InputLabel>BPM</InputLabel>
-          <Select
-            name="bpm"
-            value={bpm}
-            onChange={handleChange}
-          >
-            {bpmOptions}
-          </Select>
-        </FormControl>
-
-        <FormControl className={classes.formControl}>
-          <InputLabel>NOTE TYPE</InputLabel>
-          <Select
-            name="noteType"
-            value={noteType}
-            onChange={handleChange}
-          >
-            {noteTypeOptions}
-          </Select>
-        </FormControl>
+      <Box className={classes.flexBox}>
+        <SelectForm
+          label="BPM"
+          name="bpm"
+          value={bpm}
+          handleChange={handleChange}
+          options={bpmOptions}
+        />
+        <SelectForm
+          label="NOTE TYPE"
+          name="noteType"
+          value={noteType}
+          handleChange={handleChange}
+          options={noteTypeOptions}
+        />
       </Box>
 
-      <Box sx={{ p: 1, m: 1 }}>
-        <Box sx={{ textAlign: 'center' }}>
-          {calcInterval} ms
-        </Box>
-      </Box>
+      <ResultBox
+        interval={calcInterval}
+        criticalSec={calcCriticalSec}
+      />
     </>
   );
-}
+};
 
 export default Calculator;
