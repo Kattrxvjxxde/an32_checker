@@ -16,6 +16,7 @@ const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
       label={label}
       name={name}
       type="number"
+      inputProps={{ maxLength: 3, pattern: '[0-9]*' }}
       value={value}
       onChange={handleChange}
     />
