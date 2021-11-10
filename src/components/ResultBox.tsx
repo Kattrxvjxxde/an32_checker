@@ -66,6 +66,12 @@ const useStyles = makeStyles(() => ({
   resultContainer: {
     textAlign: 'center',
   },
+  label: {
+    marginTop: 40,
+    fontFamily: 'Impact',
+    fontSize: '1.4rem',
+    textAlign: 'center',
+  },
 }));
 
 type ResultBoxProps = {
@@ -96,7 +102,30 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
 
   return (
     <>
+      <p className={classes.label}>
+        【 Calculation result 】
+      </p>
+
+      <Box className={classes.resultContainer}>
+        <Box className={classes.flexBox}>
+          <div>
+            [ ノーツ間秒数 ]
+            <br />
+            {intervalStr}
+          </div>
+          <div>
+            [ CRITICAL範囲 ]
+            <br />
+            {criticalSecStr}
+          </div>
+        </Box>
+      </Box>
+
       <hr className={classes.hr} />
+
+      <p className={classes.label}>
+        【 Image diagram 】
+      </p>
 
       <Box className={classes.flexBox}>
         <Box className={classes.figureContainer}>
@@ -116,23 +145,6 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
               sx={{ height: criticalFigureHeight }}
             />
           )}
-        </Box>
-      </Box>
-
-      <hr className={classes.hr} />
-
-      <Box className={classes.resultContainer}>
-        <Box className={classes.flexBox}>
-          <div>
-            【ノーツ間】
-            <br />
-            {intervalStr}
-          </div>
-          <div>
-            【CRITICAL範囲】
-            <br />
-            {criticalSecStr}
-          </div>
         </Box>
       </Box>
     </>
