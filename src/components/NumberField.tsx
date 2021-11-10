@@ -10,6 +10,7 @@ type NumberFieldProps = {
 
 const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
   const { label, name, value, handleChange } = props;
+  const valueStr = value === 0 ? '' : String(value);
 
   return (
     <TextField
@@ -17,8 +18,11 @@ const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
       name={name}
       type="number"
       inputProps={{ maxLength: 3, pattern: '[0-9]*' }}
-      value={value}
+      value={valueStr}
       onChange={handleChange}
+      InputLabelProps={{
+        shrink: true,
+      }}
     />
   );
 };
