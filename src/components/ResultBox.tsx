@@ -4,13 +4,12 @@ import {
   Box,
 } from "@material-ui/core";
 
-const FIGURE_CONTAINTER_HEIGHT = 360;
-const FIGURE_HEIGHT = 320;
-const NOTE_WIDTH = 200;
+const FIGURE_CONTAINTER_HEIGHT = 320;
+const FIGURE_HEIGHT = 240;
+const NOTE_WIDTH = 120;
 
 const useStyles = makeStyles(() => ({
-  containerBox: {
-    marginTop: 40,
+  flexBox: {
     display: 'flex',
     justifyContent: 'space-evenly',
   },
@@ -24,15 +23,17 @@ const useStyles = makeStyles(() => ({
   },
   realNoteFigure1: {
     margin: 'auto',
-    marginRight: 20,
+    marginRight: 16,
     width: NOTE_WIDTH,
     borderBottom: '1rem solid #696969',
+    zIndex: 100,
   },
   realNoteFigure2: {
     margin: 'auto',
-    marginLeft: 20,
+    marginLeft: 16,
     width: NOTE_WIDTH,
     borderTop: '1rem solid #696969',
+    zIndex: 100,
   },
   criticalFigure: {
     top: '50%',
@@ -41,21 +42,26 @@ const useStyles = makeStyles(() => ({
     WebkitTransform: 'translate(-50%, -50%)',
     MsTransform: 'translate(-50%, -50%)',
     width: '100%',
-    background: '#f90',
-    opacity: 0.7,
+    background: '#ffa050',
     position: 'absolute',
     textAlign: 'center',
+    animation: '$flash linear infinite 1s',
   },
-  criticalStr: {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    margin: 'auto',
-    position: 'absolute',
-    color: '#f90',
-    fontSize: '1.2rem',
-    fontFamily: 'Impact',
+  '@keyframes flash': {
+    '0%, 100%': { opacity: 0.7 },
+    '50%': { opacity: 0.4 },
+  },
+  virtualNote: {
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    WebkitTransform: 'translate(-50%, -50%)',
+    MsTransform: 'translate(-50%, -50%)',
+    width: '100%',
+
+  },
+  hr: {
+    margin: '32px 0',
   },
   resultContainer: {
     textAlign: 'center',
@@ -90,14 +96,10 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
 
   return (
     <>
-      <Box className={classes.containerBox}>
+      <hr className={classes.hr} />
+
+      <Box className={classes.flexBox}>
         <Box className={classes.figureContainer}>
-          {criticalSec > 0 && (
-            <Box
-              className={classes.criticalFigure}
-              sx={{ height: criticalFigureHeight }}
-            />
-          )}
           <Box className={classes.noteContainer}>
             <Box
               className={classes.realNoteFigure1}
@@ -108,19 +110,24 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
               sx={{ height: noteFigureHeight }}
             />
           </Box>
+          {criticalSec > 0 && (
+            <Box
+              className={classes.criticalFigure}
+              sx={{ height: criticalFigureHeight }}
+            />
+          )}
         </Box>
       </Box>
 
-      <Box>
-        <Box sx={{ textAlign: 'center' }}>
+      <hr className={classes.hr} />
+
+      <Box className={classes.resultContainer}>
+        <Box className={classes.flexBox}>
           <div>
             【ノーツ間】
             <br />
             {intervalStr}
           </div>
-
-          <br />
-
           <div>
             【CRITICAL範囲】
             <br />
