@@ -36,9 +36,9 @@ const Calculator: React.FC = () => {
     }
   };
 
-  const calcInterval = React.useMemo(() =>
-    Math.round(240000000 / (bpm * noteType)) / 1000,
-    [bpm, noteType]
+  const calcInterval = React.useMemo(() => {
+    return (bpm * noteType === 0) ? 0 : Math.round(240000000 / (bpm * noteType)) / 1000;
+  }, [bpm, noteType]
   );
 
   const calcCriticalSec = React.useMemo(() =>

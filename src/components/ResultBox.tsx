@@ -77,10 +77,12 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
       ? FIGURE_HEIGHT
       : FIGURE_HEIGHT * criticalSec / interval;
 
-  const criticalSecStr =
-    criticalSec > 0
-      ? `${criticalSec} ms`
-      : 'なし';
+  const intervalStr = interval === 0 ? 'ERROR' : `${interval} ms`
+
+  let criticalSecStr = 'ERROR';
+  if (interval !== 0) {
+    criticalSecStr = criticalSec > 0 ? `${criticalSec} ms` : 'なし';
+  }
 
   return (
     <Box className={classes.containerBox}>
@@ -102,7 +104,7 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
           <div>
             【ノーツ間】
             <br />
-            {interval} ms
+            {intervalStr}
           </div>
 
           <br />

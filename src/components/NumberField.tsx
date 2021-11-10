@@ -15,7 +15,7 @@ const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
     <TextField
       label={label}
       name={name}
-      type="text"
+      type="number"
       value={value}
       onChange={handleChange}
     />
