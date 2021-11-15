@@ -68,7 +68,6 @@ const useStyles = makeStyles(() => ({
   },
   label: {
     marginTop: 40,
-    fontFamily: 'Impact',
     fontSize: '1.4rem',
     textAlign: 'center',
   },
@@ -103,18 +102,18 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
   return (
     <>
       <p className={classes.label}>
-        【 Calculation result 】
+        【 計算結果 】
       </p>
 
       <Box className={classes.resultContainer}>
         <Box className={classes.flexBox}>
           <div>
-            [ ノーツ間秒数 ]
+            ─ ノーツ間秒数 ─
             <br />
             {intervalStr}
           </div>
           <div>
-            [ CRITICAL範囲 ]
+            ─ CRITICAL範囲 ─
             <br />
             {criticalSecStr}
           </div>
@@ -124,7 +123,7 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
       <hr className={classes.hr} />
 
       <p className={classes.label}>
-        【 Image diagram 】
+        【 イメージ図 】
       </p>
 
       <Box className={classes.flexBox}>
