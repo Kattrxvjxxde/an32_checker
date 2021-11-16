@@ -1,5 +1,14 @@
 import React from 'react';
-import { TextField } from "@material-ui/core";
+import {
+  makeStyles,
+  TextField,
+} from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+  numberField: {
+    margin: '0 1.4rem'
+  },
+}));
 
 type NumberFieldProps = {
   label: string;
@@ -9,6 +18,8 @@ type NumberFieldProps = {
 };
 
 const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
+  const classes = useStyles();
+
   const { label, name, value, handleChange } = props;
   const valueStr = value === 0 ? '' : String(value);
 
@@ -17,12 +28,13 @@ const NumberField: React.FC<NumberFieldProps> = (props: NumberFieldProps) => {
       label={label}
       name={name}
       type="number"
-      inputProps={{ maxLength: 3, pattern: '[0-9]*' }}
+      inputProps={{ pattern: '[0-9]*' }}
       value={valueStr}
       onChange={handleChange}
       InputLabelProps={{
         shrink: true,
       }}
+      className={classes.numberField}
     />
   );
 };
