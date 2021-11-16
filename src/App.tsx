@@ -17,6 +17,9 @@ const useStyles = makeStyles(() => ({
   toolbar: {
     justifyContent: 'space-between',
   },
+  typography: {
+    fontWeight: 'bold',
+  },
   calculatorBox: {
     margin: '32px 0',
   },
@@ -29,7 +32,9 @@ const App: React.FC = () => {
     <>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-          <Typography>SDVXあんみつチェッカー</Typography>
+          <Typography className={classes.typography}>
+            SDVX餡蜜チェッカー
+          </Typography>
           <GuideButton />
         </Toolbar>
       </AppBar>

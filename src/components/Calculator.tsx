@@ -5,11 +5,16 @@ import {
 } from "@material-ui/core";
 import NumberField from './NumberField';
 import ResultBox from './ResultBox';
+import ArrowDown from '../images/arrow_down.svg'
 
 const useStyles = makeStyles(() => ({
   flexBox: {
     display: 'flex',
     justifyContent: 'space-evenly',
+  },
+  arrowDown: {
+    margin: '4% 40% 1% 40%',
+    width: '20%',
   },
 }));
 
@@ -76,9 +81,12 @@ const Calculator: React.FC = () => {
         />
       </Box>
 
+      <img className={classes.arrowDown} src={ArrowDown} alt="Arrowdown" />
+
       <ResultBox
         interval={calcInterval}
         criticalSec={calcCriticalSec}
+        noteType={noteType}
       />
     </>
   );
