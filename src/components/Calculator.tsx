@@ -52,7 +52,7 @@ const Calculator: React.FC = () => {
     }
   };
 
-  // ノーツ間秒数計算
+  // ノーツ間隔計算
   const calcInterval = React.useMemo(() => {
     return (bpm * noteType === 0) ? 0 : Math.round(240000000 / (bpm * noteType)) / 1000;
   }, [bpm, noteType]

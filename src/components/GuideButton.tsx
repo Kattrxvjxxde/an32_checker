@@ -74,7 +74,7 @@ const GuideButton: React.FC = () => {
           >
             <h2>はじめに</h2>
             <p>
-              このツールは、難しい譜面の<b>PUC</b>を狙うSOUND VOLTEX上級者をターゲットして作成しています。<br />
+              このツールは、難しい譜面の<b>PUC</b>を狙うSOUND VOLTEX上級者をターゲットとしています。<br />
               譜面のクリアや、ある程度の高スコアを狙う人に向けたものではない点、ご了承ください。
             </p>
 
@@ -84,25 +84,27 @@ const GuideButton: React.FC = () => {
             <h4 className={classes.sectionLabel}>【STEP 1】</h4>
             <div className={classes.section}>
               <p>
-                速いノーツを同時押し（以下、餡蜜と言います）したら、どの程度CRITICAL判定で光るのかどうかを確認したい譜面を見つけます。<br />
-                その譜面の<b>BPM</b>と<b>NOTE TYPE</b>を入力します。
+                餡蜜（速いノーツを同時押し）をしたい譜面について、その譜面の<b>BPM</b>と<b>NOTE TYPE</b>を入力します。
               </p>
               <p className={classes.exampleText}>
                 例）Divine's:Bugscript の2回出てくる速いトリル（24分）<br />
                 　⇒　BPM → 230<br />
                 　　　NOTE TYPE → 24（分音符）
               </p>
-              <p><b>BPM</b>は数字3桁まで、<b>NOTE TYPE</b>は数字2桁まで、それぞれ入力できます。</p>
+              <p><b>BPM</b>は数字3桁まで、<b>NOTE TYPE</b>は数字2桁まで、それぞれ整数で入力できます。</p>
             </div>
 
             <h4 className={classes.sectionLabel}>【STEP 2】</h4>
             <div className={classes.section}>
-              <p>計算結果を確認します。</p>
+              <p>
+                計算結果が表示されます。<br />
+                どの程度CRITICAL判定で光るかが確認できます。
+              </p>
               <p className={classes.section}>
-                <b>ノーツ間秒数</b> ... 餡蜜したいノーツの1つ目と2つ目の間隔の秒数（ms）<br />
-                <b>CRITICAL範囲</b> ... 同時押しした場合にCRITICAL判定となる範囲の秒数（ms）
+                <b>ノーツ間隔</b> ... 餡蜜したいノーツの1個目と2個目の間隔 [ms：ミリ秒]<br />
+                <b>CRITICAL範囲</b> ... 同時押しした場合にCRITICAL判定となる範囲 [ms：ミリ秒]
                 <p className={classes.tips}>
-                  ※ 単一ノートのCRITICAL判定は、120fpsを前提としてノートの前後それぞれ5フーレム分 = 41.667ms で計算をしています。
+                  ※ 単一ノートのCRITICAL判定は、120fpsを前提としてノートの前後それぞれ5フーレム分 ( = 41.667 [ms] ) で計算をしています。
                 </p>
               </p>
               <p>
@@ -133,8 +135,8 @@ const GuideButton: React.FC = () => {
               ・具体的は計算式は下記の通りです。
             </p>
             <p className={classes.exampleText}>
-              ノーツ間秒数 ⇒ 1000[ms] / ( BPM × ( NOTE TYPE/4 ) × (1/60) )<br />
-              CRITICAL範囲 ⇒ 10フレーム【 10 × ( 1000[ms] / 120 ) 】 - ノーツ間秒数
+              ノーツ間隔 ⇒ 1000 [ms] / ( BPM × ( NOTE TYPE/4 ) × (1/60) )<br />
+              CRITICAL範囲 ⇒ 10フレーム【 10 × ( 1000 [ms] / 120 ) 】 - ノーツ間隔
             </p>
           </DialogContentText>
         </DialogContent>

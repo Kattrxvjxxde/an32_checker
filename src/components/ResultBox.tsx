@@ -178,7 +178,7 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
       <Box className={classes.resultContainer}>
         <Box className={classes.flexBox}>
           <Box className={classes.resultText}>
-            ノーツ間秒数
+            ノーツ間隔
             <br />
             {intervalStr}
           </Box>
@@ -231,7 +231,7 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
         <p>
           2本ある黒い棒がノーツを表しています。<br />
           左側が餡蜜したいノーツの1個目、右側が2個目です。<br />
-          この2本の黒い棒の間隔が<b>ノーツ間秒数</b>に相当します。
+          この2本の黒い棒の間隔が<b>ノーツ間隔</b>に相当します。
         </p>
         <p>
           斜め線でで塗り潰された長方形が、<br />

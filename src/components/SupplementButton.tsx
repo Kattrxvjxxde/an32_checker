@@ -28,9 +28,10 @@ const useStyles = makeStyles(() => ({
     fontSize: '0.7rem',
     border: '0.1rem solid #dcdcdc',
     padding: '0.4rem',
+    textAlign: 'center',
   },
   img: {
-    width: '100%',
+    width: '16rem',
   },
 }));
 
@@ -59,7 +60,7 @@ const SupplementButton: React.FC = () => {
         variant="outlined"
         onClick={handleOpen}
       >
-        ※ 24分を16分に変換できる譜面とは？
+        ※ 24分を16分に変換とは？
       </Button>
       <Dialog
         open={open}
@@ -69,7 +70,7 @@ const SupplementButton: React.FC = () => {
         aria-describedby="supplement-dialog-description"
       >
         <DialogTitle id="supplement-dialog-title">
-          24分を16分に変換できる譜面とは？
+          24分を16分に変換とは？
         </DialogTitle>
         <DialogContent dividers={true}>
           <DialogContentText
@@ -79,7 +80,7 @@ const SupplementButton: React.FC = () => {
             className={classes.dialogContentText}
           >
             <p>
-              24分のノーツというは、1拍の間に均等に3個のノーツが存在するものです。<br />
+              24分のノーツというのは、0.5拍の間に均等に3個のノーツが存在するものです。<br />
               その3個のノーツのうち、2個目と3個目を中央で餡蜜すると、<br />
               1個目のノートと2個目・3個目との間隔がちょうど16分と同じになります。
             </p>
