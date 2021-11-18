@@ -14,7 +14,7 @@ import Img24to16_2 from '../images/24to16_2.jpg'
 
 const useStyles = makeStyles(() => ({
   buttonBox: {
-    margin: '0 2rem 1rem 2rem',
+    margin: '0 2rem 0.7rem 2rem',
     textAlign: 'right',
   },
   buttonText: {
@@ -35,8 +35,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SupplementButton: React.FC = () => {
+type SupplementButtonProps = {
+  display: boolean;
+}
+
+const SupplementButton: React.FC<SupplementButtonProps> = (props: SupplementButtonProps) => {
   const classes = useStyles();
+  const { display } = props;
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -59,6 +64,7 @@ const SupplementButton: React.FC = () => {
         color="primary"
         variant="outlined"
         onClick={handleOpen}
+        style={{ visibility: display ? 'visible' : 'hidden' }}
       >
         ※ 24分を16分に変換とは？
       </Button>
@@ -102,6 +108,10 @@ const SupplementButton: React.FC = () => {
       </Dialog>
     </Box>
   );
+};
+
+SupplementButton.defaultProps = {
+  display: true,
 };
 
 export default SupplementButton;

@@ -102,7 +102,7 @@ const GuideButton: React.FC = () => {
               </p>
               <p className={classes.section}>
                 <b>ノーツ間隔</b> ... 餡蜜したいノーツの1個目と2個目の間隔 [ms：ミリ秒]<br />
-                <b>CRITICAL範囲</b> ... 同時押しした場合にCRITICAL判定となる範囲 [ms：ミリ秒]
+                <b>CRITICAL範囲</b> ... 餡蜜した場合にCRITICAL判定となる範囲 [ms：ミリ秒]
                 <p className={classes.tips}>
                   ※ 単一ノートのCRITICAL判定は、120fpsを前提としてノートの前後それぞれ5フーレム分 ( = 41.667 [ms] ) で計算をしています。
                 </p>

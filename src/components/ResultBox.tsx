@@ -9,13 +9,14 @@ const FIGURE_CONTAINTER_HEIGHT = 320;
 const FIGURE_HEIGHT = 240;
 const NOTE_WIDTH = 120;
 
-const CRITICAL_TH1 = 2.5 * 1000 / 120;
-const CRITICAL_TH2 = 4.5 * 1000 / 120;
+const CRITICAL_TH0 = 1.0 * 1000 / 120;
+const CRITICAL_TH1 = 3.0 * 1000 / 120;
+const CRITICAL_TH2 = 4.2 * 1000 / 120;
 const CRITICAL_TH3 = 6.0 * 1000 / 120;
 
 const useStyles = makeStyles(() => ({
   flexBox: {
-    marginBottom: '1.4rem',
+    marginBottom: '0.9rem',
     padding: '0.7rem',
     display: 'flex',
     justifyContent: 'space-evenly',
@@ -57,6 +58,18 @@ const useStyles = makeStyles(() => ({
   '@keyframes flashFigure': {
     '0%, 100%': { opacity: 0.5 },
     '50%': { opacity: 0.3 },
+  },
+  impossibleText: {
+    top: '38%',
+    transform: 'rotate(12deg)',
+    WebkitTransform: 'rotate(12deg)',
+    MsTransform: 'rotate(12deg)',
+    width: '100%',
+    position: 'absolute',
+    textAlign: 'center',
+    fontSize: '3.4rem',
+    fontWeight: 'bold',
+    color: '#999',
   },
   virtualNote: {
     top: '50%',
@@ -142,7 +155,11 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
   if (interval !== 0) {
     if (criticalSec <= 0) {
       resultText = '餡蜜は不可能です。';
-    } else if (0 <= criticalSec && criticalSec < CRITICAL_TH1) {
+    } else if (0 <= criticalSec && criticalSec < CRITICAL_TH0) {
+      criticalTextColor = '#666';
+      criticalFigureColor = 'repeating-linear-gradient(-45deg, #666, #666 5px, #bbb 5px, #bbb 10px)';
+      resultText = '餡蜜の有用性はほぼありません。\n頑張って譜面通りに叩きましょう。';
+    } else if (CRITICAL_TH0 <= criticalSec && criticalSec < CRITICAL_TH1) {
       criticalTextColor = '#05f';
       criticalFigureColor = 'repeating-linear-gradient(-45deg, #05f, #05f 5px, #7bf 5px, #7bf 10px)';
       resultText = noteType === 24
@@ -159,11 +176,11 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
       criticalFigureColor = 'repeating-linear-gradient(-45deg, #f70, #f70 5px, #fc5 5px, #fc5 10px)';
       resultText = noteType === 24
         ? '餡蜜の有用性は高いです！\n24分を16分に変換できる譜面(※)であれば、\n安定してCRITICAL判定が出るでしょう。'
-        : '餡蜜の有用性は高いです！\n1個目のノートからほんの少し遅入りして同時押しする感覚に慣れたら、\nCRITICAL判定を安定させることができるでしょう。';
+        : '餡蜜の有用性は高いです！\n1個目のノートからほんの少し遅入りして餡蜜する感覚に慣れたら、\nCRITICAL判定を安定させることができるでしょう。';
     } else {
       criticalTextColor = '#f22';
       criticalFigureColor = 'repeating-linear-gradient(-45deg, #f22, #f22 5px, #f99 5px, #f99 10px)';
-      resultText = '餡蜜の有用性は非常に高いです！！\n特に意識せずとも餡蜜で安定してCRITICAL判定が出るでしょう。\nノーツの中央でなく、どちらかのノーツに合わせた餡蜜でもおおよそ大丈夫です。';
+      resultText = '餡蜜の有用性は非常に高いです!!\n特に意識せずとも餡蜜で安定してCRITICAL判定が出るでしょう。\nノーツの中央でなく、どちらかのノーツに合わせた餡蜜でもおおよそ大丈夫です。';
     }
   }
 
@@ -191,9 +208,7 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
             {criticalSecStr}
           </Box>
         </Box>
-        {/24分を16分に変換できる譜面/.test(resultText) && (
-          <SupplementButton />
-        )}
+        <SupplementButton display={/24分を16分に変換できる譜面/.test(resultText)} />
         <Box className={classes.description}>
           {resultText.split('\n').map((str, index) => (
             <React.Fragment key={index}>{str}<br /></React.Fragment>
@@ -224,6 +239,11 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
               style={{ background: criticalFigureColor }}
             />
           )}
+          {criticalSec <= 0 && (
+            <Box className={classes.impossibleText}>
+              餡蜜不可能
+            </Box>
+          )}
         </Box>
       </Box>
 
@@ -234,9 +254,15 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
           この2本の黒い棒の間隔が<b>ノーツ間隔</b>に相当します。
         </p>
         <p>
-          斜め線でで塗り潰された長方形が、<br />
-          同時押しした場合にCRITICAL判定で光る範囲を表しています。<br />
+          斜め線で塗り潰された長方形が、<br />
+          餡蜜した場合にCRITICAL判定で光る範囲を表しています。<br />
           この長方形の高さが<b>CRITICAL範囲</b>に相当します。
+          {criticalSec <= 0 && (
+            <>
+              <br />
+              （長方形がない場合、餡蜜した場合にCRITICAL判定で光る範囲はありません。）
+            </>
+          )}
         </p>
       </Box>
     </>
