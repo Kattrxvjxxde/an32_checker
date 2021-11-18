@@ -4,6 +4,7 @@ import {
   Box,
 } from "@material-ui/core";
 import SupplementButton from './SupplementButton';
+import TweetButton from './TweetButton';
 
 const FIGURE_CONTAINTER_HEIGHT = 320;
 const FIGURE_HEIGHT = 240;
@@ -122,14 +123,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 type ResultBoxProps = {
+  bpm: number;
+  noteType: number;
   interval: number;
   criticalSec: number;
-  noteType: number;
 };
 
 const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
   const classes = useStyles();
-  const { interval, criticalSec, noteType } = props;
+  const { bpm, noteType, interval, criticalSec } = props;
 
   const noteFigureHeight =
     interval > criticalSec
@@ -208,12 +210,20 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
             {criticalSecStr}
           </Box>
         </Box>
-        <SupplementButton display={/24分を16分に変換できる譜面/.test(resultText)} />
+        <SupplementButton
+          display={/24分を16分に変換できる譜面/.test(resultText)}
+        />
         <Box className={classes.description}>
           {resultText.split('\n').map((str, index) => (
             <React.Fragment key={index}>{str}<br /></React.Fragment>
           ))}
         </Box>
+
+        <TweetButton
+          bpm={bpm}
+          noteType={noteType}
+          criticalSec={criticalSec}
+        />
       </Box>
 
       <Box className={classes.label}>

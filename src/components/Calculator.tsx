@@ -18,18 +18,27 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+// 「数字だけ」の正規表現
+const onlyNumRegexp = /^\d*$/;
+
 // デフォルト値（Divine's:Bugscriptの速いトリル）
-const DEFAULT_BPM = 230;
-const DEFAULT_NOTE_TYPE = 24;
+let defaultBpm = 230;
+let defaultNoteType = 24;
+// クエリストリングで指定されていたらその値にする
+const params = new URLSearchParams(window.location.search);
+const paramsBpm = params.get('bpm');
+const paramsNoteType = params.get('noteType');
+if (paramsBpm && onlyNumRegexp.test(paramsBpm) && Number(paramsBpm) <= 999)
+  defaultBpm = Number(paramsBpm);
+if (paramsNoteType && onlyNumRegexp.test(paramsNoteType) && Number(paramsNoteType) <= 99)
+  defaultNoteType = Number(paramsNoteType);
 
 const Calculator: React.FC = () => {
   const classes = useStyles();
 
-  const [bpm, setBpm] = React.useState<number>(DEFAULT_BPM);
-  const [noteType, setNoteType] = React.useState<number>(DEFAULT_NOTE_TYPE);
+  const [bpm, setBpm] = React.useState<number>(defaultBpm);
+  const [noteType, setNoteType] = React.useState<number>(defaultNoteType);
 
-  // 「数字だけ」の正規表現
-  const onlyNumRegexp = /^\d*$/;
 
   // onChange時に発火させる関数
   const handleChange = (event: React.ChangeEvent<{ value: unknown, name?: string }>) => {
@@ -84,9 +93,10 @@ const Calculator: React.FC = () => {
       <img className={classes.arrowDown} src={ArrowDown} alt="Arrowdown" />
 
       <ResultBox
+        bpm={bpm}
+        noteType={noteType}
         interval={calcInterval}
         criticalSec={calcCriticalSec}
-        noteType={noteType}
       />
     </>
   );
