@@ -68,7 +68,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     position: 'absolute',
     textAlign: 'center',
-    fontSize: '3.4rem',
+    fontSize: '3.1rem',
     fontWeight: 'bold',
     color: '#999',
   },
@@ -219,62 +219,68 @@ const ResultBox: React.FC<ResultBoxProps> = (props: ResultBoxProps) => {
           ))}
         </Box>
 
-        <TweetButton
-          bpm={bpm}
-          noteType={noteType}
-          criticalSec={criticalSec}
-        />
+        {interval !== 0 && (
+          <TweetButton
+            bpm={bpm}
+            noteType={noteType}
+            criticalSec={criticalSec}
+          />
+        )}
       </Box>
 
-      <Box className={classes.label}>
-        イメージ図
-      </Box>
-
-      <Box className={classes.flexBox}>
-        <Box className={classes.figureContainer}>
-          <Box className={classes.noteContainer}>
-            <Box
-              className={classes.realNoteFigure1}
-              sx={{ height: noteFigureHeight }}
-            />
-            <Box
-              className={classes.realNoteFigure2}
-              sx={{ height: noteFigureHeight }}
-            />
+      {interval !== 0 && (
+        <>
+          <Box className={classes.label}>
+            イメージ図
           </Box>
-          {criticalSec > 0 && (
-            <Box
-              className={classes.criticalFigure}
-              sx={{ height: criticalFigureHeight }}
-              style={{ background: criticalFigureColor }}
-            />
-          )}
-          {criticalSec <= 0 && (
-            <Box className={classes.impossibleText}>
-              餡蜜不可能
-            </Box>
-          )}
-        </Box>
-      </Box>
 
-      <Box className={classes.description}>
-        <p>
-          2本ある黒い棒がノーツを表しています。<br />
-          左側が餡蜜したいノーツの1個目、右側が2個目です。<br />
-          この2本の黒い棒の間隔が<b>ノーツ間隔</b>に相当します。
-        </p>
-        <p>
-          斜め線で塗り潰された長方形が、<br />
-          餡蜜した場合にCRITICAL判定で光る範囲を表しています。<br />
-          この長方形の高さが<b>CRITICAL範囲</b>に相当します。
-          {criticalSec <= 0 && (
-            <>
-              <br />
-              （長方形がない場合、餡蜜した場合にCRITICAL判定で光る範囲はありません。）
-            </>
-          )}
-        </p>
-      </Box>
+          <Box className={classes.flexBox}>
+            <Box className={classes.figureContainer}>
+              <Box className={classes.noteContainer}>
+                <Box
+                  className={classes.realNoteFigure1}
+                  sx={{ height: noteFigureHeight }}
+                />
+                <Box
+                  className={classes.realNoteFigure2}
+                  sx={{ height: noteFigureHeight }}
+                />
+              </Box>
+              {criticalSec > 0 && (
+                <Box
+                  className={classes.criticalFigure}
+                  sx={{ height: criticalFigureHeight }}
+                  style={{ background: criticalFigureColor }}
+                />
+              )}
+              {criticalSec <= 0 && (
+                <Box className={classes.impossibleText}>
+                  餡蜜不可能
+                </Box>
+              )}
+            </Box>
+          </Box>
+
+          <Box className={classes.description}>
+            <p>
+              2本ある黒い棒がノーツを表しています。<br />
+              左側が餡蜜したいノーツの1個目、右側が2個目です。<br />
+              この2本の黒い棒の間隔が<b>ノーツ間隔</b>に相当します。
+            </p>
+            <p>
+              斜線で塗り潰された長方形が、<br />
+              餡蜜した場合にCRITICAL判定で光る範囲を表しています。<br />
+              この長方形の高さが<b>CRITICAL範囲</b>に相当します。
+              {criticalSec <= 0 && (
+                <>
+                  <br />
+                  （長方形がない場合、餡蜜した場合にCRITICAL判定で光る範囲はありません。）
+                </>
+              )}
+            </p>
+          </Box>
+        </>
+      )}
     </>
   );
 };

@@ -46,9 +46,9 @@ const TweetButton: React.FC<TweetButtonProps> = (props: TweetButtonProps) => {
 
   let tweetText = "";
   if (criticalSec > 0) {
-    tweetText = `BPM${bpm}の${noteTypeText}を餡蜜するときにCRITICAL判定で光る範囲は${criticalSec}ミリ秒あります。`;
+    tweetText = `「BPM${bpm}」の「${noteTypeText}」を餡蜜するときに、CRITICAL判定で光る範囲は『${criticalSec}』ミリ秒あります。`;
   } else {
-    tweetText = `BPM${bpm}の${noteTypeText}は餡蜜してもCRITICAL判定で光りません。`;
+    tweetText = `「BPM${bpm}」の「${noteTypeText}」は、餡蜜してもCRITICAL判定で光りません。`;
   }
 
   return (

@@ -84,10 +84,10 @@ const GuideButton: React.FC = () => {
             <h4 className={classes.sectionLabel}>【STEP 1】</h4>
             <div className={classes.section}>
               <p>
-                餡蜜（速いノーツを同時押し）をしたい譜面について、その譜面の<b>BPM</b>と<b>NOTE TYPE</b>を入力します。
+                餡蜜（速いノーツの同時押し）をしたい譜面について、その譜面の<b>BPM</b>と<b>NOTE TYPE</b>を入力します。
               </p>
               <p className={classes.exampleText}>
-                例）Divine's:Bugscript の2回出てくる速いトリル（24分）<br />
+                例）Divine's:Bugscript に2回出てくる速いトリル（24分）<br />
                 　⇒　BPM → 230<br />
                 　　　NOTE TYPE → 24（分音符）
               </p>
@@ -104,7 +104,7 @@ const GuideButton: React.FC = () => {
                 <b>ノーツ間隔</b> ... 餡蜜したいノーツの1個目と2個目の間隔 [ms：ミリ秒]<br />
                 <b>CRITICAL範囲</b> ... 餡蜜した場合にCRITICAL判定となる範囲 [ms：ミリ秒]
                 <p className={classes.tips}>
-                  ※ 単一ノートのCRITICAL判定は、120fpsを前提としてノートの前後それぞれ5フーレム分 ( = 41.667 [ms] ) で計算をしています。
+                  ※ 単一ノートのCRITICAL判定は120fpsを前提としてノートの前後それぞれ5フーレム分 ( = 41.667 [ms] ) です。
                 </p>
               </p>
               <p>
@@ -118,7 +118,7 @@ const GuideButton: React.FC = () => {
             </div>
             <h4 className={classes.sectionLabel}>【STEP 3】</h4>
             <div className={classes.section}>
-              <p>イメージ図を確認します。<br />ただし厳密に正確な図ではないため、こちらはあくまで参考程度にご覧ください。</p>
+              <p>イメージ図を確認します。<br />ただし厳密に正確な図ではないため、あくまで参考程度にご覧ください。</p>
             </div>
 
             <hr className={classes.hr} />

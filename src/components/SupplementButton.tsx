@@ -31,7 +31,8 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center',
   },
   img: {
-    width: '16rem',
+    width: '80%',
+    maxWidth: '16rem',
   },
 }));
 
