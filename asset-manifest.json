@@ -1,25 +1,27 @@
 {
   "files": {
     "main.css": "/an32_checker/static/css/main.32ee3484.chunk.css",
-    "main.js": "/an32_checker/static/js/main.f34f9d69.chunk.js",
-    "main.js.map": "/an32_checker/static/js/main.f34f9d69.chunk.js.map",
-    "runtime-main.js": "/an32_checker/static/js/runtime-main.0f194724.js",
-    "runtime-main.js.map": "/an32_checker/static/js/runtime-main.0f194724.js.map",
-    "static/js/2.f9fffab4.chunk.js": "/an32_checker/static/js/2.f9fffab4.chunk.js",
-    "static/js/2.f9fffab4.chunk.js.map": "/an32_checker/static/js/2.f9fffab4.chunk.js.map",
-    "static/js/3.2e4ea01e.chunk.js": "/an32_checker/static/js/3.2e4ea01e.chunk.js",
-    "static/js/3.2e4ea01e.chunk.js.map": "/an32_checker/static/js/3.2e4ea01e.chunk.js.map",
+    "main.js": "/an32_checker/static/js/main.80c44dfe.chunk.js",
+    "main.js.map": "/an32_checker/static/js/main.80c44dfe.chunk.js.map",
+    "runtime-main.js": "/an32_checker/static/js/runtime-main.dbd897e3.js",
+    "runtime-main.js.map": "/an32_checker/static/js/runtime-main.dbd897e3.js.map",
+    "static/js/2.08bdad32.chunk.js": "/an32_checker/static/js/2.08bdad32.chunk.js",
+    "static/js/2.08bdad32.chunk.js.map": "/an32_checker/static/js/2.08bdad32.chunk.js.map",
+    "static/js/3.ce5f9b97.chunk.js": "/an32_checker/static/js/3.ce5f9b97.chunk.js",
+    "static/js/3.ce5f9b97.chunk.js.map": "/an32_checker/static/js/3.ce5f9b97.chunk.js.map",
     "index.html": "/an32_checker/index.html",
     "static/css/main.32ee3484.chunk.css.map": "/an32_checker/static/css/main.32ee3484.chunk.css.map",
-    "static/js/2.f9fffab4.chunk.js.LICENSE.txt": "/an32_checker/static/js/2.f9fffab4.chunk.js.LICENSE.txt",
+    "static/js/2.08bdad32.chunk.js.LICENSE.txt": "/an32_checker/static/js/2.08bdad32.chunk.js.LICENSE.txt",
     "static/media/24to16_1.713ad739.jpg": "/an32_checker/static/media/24to16_1.713ad739.jpg",
     "static/media/24to16_2.00bbf42c.jpg": "/an32_checker/static/media/24to16_2.00bbf42c.jpg",
-    "static/media/arrow_down.75e0a6e6.svg": "/an32_checker/static/media/arrow_down.75e0a6e6.svg"
+    "static/media/an32_critical_bg.3e637fa9.svg": "/an32_checker/static/media/an32_critical_bg.3e637fa9.svg",
+    "static/media/arrow_down.75e0a6e6.svg": "/an32_checker/static/media/arrow_down.75e0a6e6.svg",
+    "static/media/critical_bg.85405675.svg": "/an32_checker/static/media/critical_bg.85405675.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0f194724.js",
-    "static/js/2.f9fffab4.chunk.js",
+    "static/js/runtime-main.dbd897e3.js",
+    "static/js/2.08bdad32.chunk.js",
     "static/css/main.32ee3484.chunk.css",
-    "static/js/main.f34f9d69.chunk.js"
+    "static/js/main.80c44dfe.chunk.js"
   ]
 }
