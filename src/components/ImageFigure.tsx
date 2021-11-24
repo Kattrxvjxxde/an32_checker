@@ -6,8 +6,8 @@ import {
   Rect,
 } from 'react-konva';
 import useImage from 'use-image';
-import criticalBg from '../images/critical_bg.svg';
-import an32CriticalBg from '../images/an32_critical_bg.svg';
+import criticalBg from '../images/critical_bg.png';
+import an32CriticalBg from '../images/an32_critical_bg.png';
 
 type ImageFigureProps = {
   interval: number;
