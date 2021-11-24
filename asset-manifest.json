@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/an32_checker/static/css/main.32ee3484.chunk.css",
-    "main.js": "/an32_checker/static/js/main.80c44dfe.chunk.js",
-    "main.js.map": "/an32_checker/static/js/main.80c44dfe.chunk.js.map",
+    "main.js": "/an32_checker/static/js/main.43d79e0c.chunk.js",
+    "main.js.map": "/an32_checker/static/js/main.43d79e0c.chunk.js.map",
     "runtime-main.js": "/an32_checker/static/js/runtime-main.dbd897e3.js",
     "runtime-main.js.map": "/an32_checker/static/js/runtime-main.dbd897e3.js.map",
     "static/js/2.08bdad32.chunk.js": "/an32_checker/static/js/2.08bdad32.chunk.js",
@@ -14,14 +14,12 @@
     "static/js/2.08bdad32.chunk.js.LICENSE.txt": "/an32_checker/static/js/2.08bdad32.chunk.js.LICENSE.txt",
     "static/media/24to16_1.713ad739.jpg": "/an32_checker/static/media/24to16_1.713ad739.jpg",
     "static/media/24to16_2.00bbf42c.jpg": "/an32_checker/static/media/24to16_2.00bbf42c.jpg",
-    "static/media/an32_critical_bg.3e637fa9.svg": "/an32_checker/static/media/an32_critical_bg.3e637fa9.svg",
-    "static/media/arrow_down.75e0a6e6.svg": "/an32_checker/static/media/arrow_down.75e0a6e6.svg",
-    "static/media/critical_bg.85405675.svg": "/an32_checker/static/media/critical_bg.85405675.svg"
+    "static/media/arrow_down.75e0a6e6.svg": "/an32_checker/static/media/arrow_down.75e0a6e6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.dbd897e3.js",
     "static/js/2.08bdad32.chunk.js",
     "static/css/main.32ee3484.chunk.css",
-    "static/js/main.80c44dfe.chunk.js"
+    "static/js/main.43d79e0c.chunk.js"
   ]
 }
